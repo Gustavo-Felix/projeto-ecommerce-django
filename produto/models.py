@@ -59,7 +59,7 @@ class Produto(models.Model):
     
 class Variacao(models.Model):
     class Meta:
-        verbose_name = 'Variação',
+        verbose_name = 'Variação'
         verbose_name_plural = 'Variações'
 
     produto = models.ForeignKey(Produto, on_delete=models.CASCADE)
