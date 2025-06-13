@@ -5,6 +5,8 @@ gunicorn-error-log
 __localcode
 /data/
 
+/media/produto_imagens
+
 # Django #
 *.log
 *.pot
