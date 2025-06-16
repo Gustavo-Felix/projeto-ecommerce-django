@@ -20,6 +20,9 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
+    path('', include('produto.urls')),
+    path('perfil/', include('perfil.urls')),
+    path('pedido/', include('pedido.urls')),
     path('admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
@@ -30,4 +33,29 @@ if settings.DEBUG:
         path('__debug__', include(debug_toolbar.urls)),
 
     ] + urlpatterns
+
+# geral:
+#     '' (produto)
+#     perfil/
+#     pedido/
+
+# pedido:
+#     pagar/
+#     fecharpedido/
+#     detalhe/<int:pk>
+
+# produto:
+#     '' (lista de produtos)
+#     <slug> detalhes do produto
+#     addtocart
+#     removefromcart
+#     cart
+#     finalizar
+
+# perfil:
+#     '' - criar
+#     update
+#     login
+#     logout
+
 
