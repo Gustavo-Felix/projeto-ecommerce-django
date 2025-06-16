@@ -7,7 +7,7 @@ class VariacaoInline(admin.TabularInline):
 
 @admin.register(Produto)
 class ProdutoAdmin(admin.ModelAdmin):
-    list_display = 'nome', 'descricao_curta', 'preco_marketing',
+    list_display = 'nome', 'descricao_curta', 'get_preco_formatado', 'get_preco_promocional_formatado'
     list_display_links = 'nome',
     search_fields = 'id', 'nome', 
     list_per_page = 10
