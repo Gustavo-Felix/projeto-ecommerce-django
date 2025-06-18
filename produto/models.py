@@ -3,6 +3,8 @@ from PIL import Image
 import os
 from django.conf import settings
 from django.utils.text import slugify
+from django.conf import settings
+from utils.utils import formata_preco
 
 class Produto(models.Model):
     class Meta:
@@ -26,11 +28,13 @@ class Produto(models.Model):
     )
 
     def get_preco_formatado(self):
-        return f'R$ {self.preco_marketing:.2f}'.replace('.', ',')
+        return formata_preco(self.preco_marketing)
+        # return f'R$ {self.preco_marketing:.2f}'.replace('.', ',')
     get_preco_formatado.short_description = 'Preço'
 
     def get_preco_promocional_formatado(self):
-        return f'R$ {self.preco_marketing_promocional:.2f}'.replace('.', ',')
+        return formata_preco(self.preco_marketing_promocional)
+        # return f'R$ {self.preco_marketing_promocional:.2f}'.replace('.', ',')
     get_preco_promocional_formatado.short_description = 'Preço Promo.'
 
     @staticmethod
